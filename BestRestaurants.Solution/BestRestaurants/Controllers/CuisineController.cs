@@ -27,13 +27,19 @@ namespace BestRestaurants.Controllers
       }
       
       [HttpPost]
-public ActionResult Create(Cuisine cuisine)
-{
-    _db.Cuisines.Add(cuisine);
-    _db.SaveChanges();
-    return RedirectToAction("Index");
-}
+      public ActionResult Create(Cuisine cuisine)
+      {
+          _db.Cuisines.Add(cuisine);
+          _db.SaveChanges();
+          return RedirectToAction("Index");
+      }
 
+    public ActionResult Details(int id)
+    {
+       List<Restaurant> restaurantList = _db.Restaurants
+                                  .Where(restaurant => restaurant.CuisineId == id).ToList();
+      return View(restaurantList);
       } 
 
+}
 }

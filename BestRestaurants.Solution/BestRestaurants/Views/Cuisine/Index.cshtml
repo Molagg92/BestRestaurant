@@ -14,6 +14,6 @@
 <ul>
   @foreach(Cuisine cuisine in Model)
   {
-    <li>@Html.ActionLink($"{cuisine.Type}", "Details")</li>
+    <li>@Html.ActionLink($"{cuisine.Type}", "Details", new { id = cuisine.CuisineId })</li>
   }
 </ul>

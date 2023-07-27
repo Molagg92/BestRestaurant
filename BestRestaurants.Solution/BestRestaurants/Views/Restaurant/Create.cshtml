@@ -11,6 +11,11 @@
 {
 @Html.LabelFor(model => model.Name)
 @Html.TextBoxFor(model => model.Name)
+@Html.DropDownListFor(
+    model => model.CuisineId, 
+    (IEnumerable<SelectListItem>)ViewBag.Cuisines, 
+    "Please select a cuisine"
+)
 <input type="submit" value="Add a new restuarant" />
 }
 

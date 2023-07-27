@@ -1,0 +1,14 @@
+@{
+  Layout = "_Layout";
+}
+
+@using BestRestaurants.Models;
+
+<h1>Here are all the restaurants for</h1>
+
+<ul>
+  @foreach(Restaurant restaurant in Model)
+  {
+    <li>@restaurant.Name</li>
+  }
+</ul>

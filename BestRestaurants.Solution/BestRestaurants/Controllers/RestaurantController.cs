@@ -24,9 +24,16 @@ namespace BestRestaurants.Controllers
 
       public ActionResult Create()
       {
+            var cuisines = _db.Cuisines.Select(cuisine => new SelectListItem 
+            {
+                Value = cuisine.CuisineId.ToString(), 
+                Text = cuisine.Type
+            })
+                .ToList();
+        
+            ViewBag.Cuisines = cuisines;
         return View();
       }
-
 
         [HttpPost]
         public ActionResult Create(Restaurant restaurant)
@@ -35,8 +42,6 @@ namespace BestRestaurants.Controllers
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
-
-
       } 
 
     }
